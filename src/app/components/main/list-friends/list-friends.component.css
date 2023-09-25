@@ -23,3 +23,9 @@
     background-color: var(--background-primary);
     color: var(--font-secondary);
 }
+
+.friends-list {
+    flex-direction: column;
+    padding: 0 5em;
+    gap: 10px;
+}
