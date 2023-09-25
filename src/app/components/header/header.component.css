@@ -1,0 +1,26 @@
+header {
+    background-color: var(--background-primary);
+    color: var(--font-secondary);
+}
+
+.container-header {
+    justify-content: space-between;
+    padding: 1.5em 0.8em;
+}
+
+.secondary-header {
+    border-top: 4px solid var(--font-secondary);
+    font-size: 0.5em;
+    justify-content: space-around;
+    padding: 1em 20em;
+    background-color: var(--background-secondary);
+}
+
+.header-link {
+    text-decoration: none;
+    color: var(--background-primary);
+}
+
+.logo, .welcome {
+    font-family: 'Fugaz One', cursive;
+}

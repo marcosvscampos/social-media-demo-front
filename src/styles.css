@@ -1,1 +1,24 @@
 /* You can add global styles to this file, and also import other style files */
+
+@import url('https://fonts.googleapis.com/css2?family=Rubik&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fugaz+One&display=swap');
+
+:root {
+    --background-primary: #424B54;
+    --background-secondary: #c1ced1;
+    --font-primary: #D65108;
+    --font-secondary: #E2B4BD;
+    --button-cancel: #F02D3A;
+    --button-confirm: #32E875;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    font-size: 24px;
+    font-family: 'Rubik', sans-serif;
+}
+
+.container-flex {
+    display: flex;
+}
