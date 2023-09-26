@@ -6,13 +6,15 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
 import { ListFriendsComponent } from './components/main/list-friends/list-friends.component';
 import { ListFeedComponent } from './components/main/list-feed/list-feed.component';
+import { PersonListItemComponent } from './components/main/person-list-item/person-list-item.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     ListFriendsComponent,
-    ListFeedComponent
+    ListFeedComponent,
+    PersonListItemComponent
   ],
   imports: [
     BrowserModule,
