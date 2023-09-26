@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { User } from 'src/app/domain/user';
+import { UserService } from 'src/app/services/users/user.service';
 
 @Component({
   selector: 'app-list-friends',
@@ -7,7 +9,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListFriendsComponent implements OnInit {
 
-  listPersons = [
+  listUsers:User[] = []
+  
+  /*listPersons = [
     {
       photo: 'dummy-profile-photo-am',
       name: 'Amanda Pessoa',
@@ -28,11 +32,14 @@ export class ListFriendsComponent implements OnInit {
       name: 'André Alvarenga',
       isFriend: false
     }
-  ]
+  ]*/
 
-  constructor() { }
+  constructor(private service:UserService) { }
 
   ngOnInit(): void {
+    this.service.list().subscribe((items) => {
+      this.listUsers = items
+    })
   }
 
 }

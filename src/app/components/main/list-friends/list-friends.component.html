@@ -3,7 +3,7 @@
     <button class="search-button"><span class="material-symbols-outlined">search</span></button>
 </section>
 <section class="container-flex friends-list">
-    <div *ngFor="let person of listPersons">
-        <app-person-list-item [person]="person"></app-person-list-item>
+    <div *ngFor="let user of listUsers">
+        <app-person-list-item [user]="user"></app-person-list-item>
     </div>
 </section>
