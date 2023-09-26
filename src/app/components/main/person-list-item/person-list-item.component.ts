@@ -9,7 +9,8 @@ export class PersonListItemComponent implements OnInit {
 
   @Input() person = {
     photo: '',
-    name: ''
+    name: '',
+    isFriend: false
   }
 
   constructor() { }
