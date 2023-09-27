@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Filter } from 'src/app/domain/filter';
 import { User } from 'src/app/domain/user';
 import { UserService } from 'src/app/services/users/user.service';
 
@@ -10,36 +11,24 @@ import { UserService } from 'src/app/services/users/user.service';
 export class ListFriendsComponent implements OnInit {
 
   listUsers:User[] = []
-  
-  /*listPersons = [
-    {
-      photo: 'dummy-profile-photo-am',
-      name: 'Amanda Pessoa',
-      isFriend: true
-    },
-    {
-      photo: 'dummy-profile-photo-fcr',
-      name: 'Fabio Carlos Reis',
-      isFriend: true
-    },
-    {
-      photo: 'dummy-profile-photo-dx',
-      name: 'Daniella Xavier',
-      isFriend: false
-    },
-    {
-      photo: 'dummy-profile-photo-aa',
-      name: 'André Alvarenga',
-      isFriend: false
-    }
-  ]*/
+
+  filter:Filter = {
+    name: ''
+  }
 
   constructor(private service:UserService) { }
 
   ngOnInit(): void {
-    this.service.list().subscribe((items) => {
-      this.listUsers = items
-    })
+    this.searchByFilters()
   }
+
+  searchByFilters(){
+    this.service.list(this.filter)   
+    .subscribe((items) => {
+        this.listUsers = items
+      })
+  }
+
+ 
 
 }

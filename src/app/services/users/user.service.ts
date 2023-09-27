@@ -1,7 +1,9 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { HttpClient, HttpResponse } from '@angular/common/http';
+import { Observable, of } from 'rxjs';
+import { map } from 'rxjs/operators';
 import { User } from 'src/app/domain/user';
+import { Filter } from 'src/app/domain/filter';
 
 @Injectable({
   providedIn: 'root'
@@ -13,15 +15,36 @@ export class UserService {
 
   constructor(private http: HttpClient) {}
 
-  list():Observable<User[]> {
-    return this.http.get<User[]>(this.buildUrl())
+  list(filter: Filter): Observable<User[]> {
+    return this.http.get<User[]>(this.buildUrl(filter), { observe: 'response' })
+    .pipe(
+        map((response: HttpResponse<User[]>) => {
+          if(response.status === 200) {
+            if(response.body != null){
+              return response.body
+            }
+          }
+          return []
+        })
+      );
   }
 
-  private buildUrl(id?: string){
+  private buildUrl(filter:Filter){
     let URL = this.BASE_URL + this.CONTEXT_PATH + '/users';
-    if(id){
-      URL = `${URL}/${id}`;
+    if(filter.id){
+      URL = `${URL}/${filter.id}`;
     }
+
+    if(filter){
+      URL = URL.concat("?")
+      Object.entries(filter)
+        .forEach(([k, v]) => {
+          if(v) {
+            URL = URL.concat(`${k}=${v}`)
+          }
+        });  
+    }
+
     return URL;
   }
 }

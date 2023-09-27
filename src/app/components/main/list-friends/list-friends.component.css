@@ -29,3 +29,16 @@
     padding: 0 5em;
     gap: 10px;
 }
+
+.no-people {
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    gap: 20px;
+    color: var(--background-primary);
+    margin: 2em 0;
+}
+
+.warning-sign {
+    width: 200px;
+}
