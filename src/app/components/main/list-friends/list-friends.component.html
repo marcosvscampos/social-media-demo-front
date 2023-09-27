@@ -1,9 +1,21 @@
 <section class="container-flex search-area">
-    <input type="text" class="search-input" placeholder="Type some friends name">
-    <button class="search-button"><span class="material-symbols-outlined">search</span></button>
+    <input type="input" class="search-input" 
+        placeholder="Type some people name"
+        name="filter"
+        [(ngModel)]="filter.name">
+    <button class="search-button" (click)="searchByFilters()">
+        <span class="material-symbols-outlined">search</span>
+    </button>
 </section>
-<section class="container-flex friends-list">
-    <div *ngFor="let person of listPersons">
-        <app-person-list-item [person]="person"></app-person-list-item>
+<section class="container-flex friends-list" *ngIf="listUsers.length > 0, else noPeople">
+    <div *ngFor="let user of listUsers">
+        <app-person-list-item [user]="user"></app-person-list-item>
     </div>
 </section>
+
+<ng-template #noPeople>
+    <div class="container-flex no-people">
+        <img class="warning-sign" src="../../../../assets/images/misc/warning-sign.png" alt="Warning Sign">
+        <p>There are no people data available!</p>
+    </div>
+</ng-template>

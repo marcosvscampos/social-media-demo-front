@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { User } from 'src/app/domain/user';
 
 @Component({
   selector: 'app-person-list-item',
@@ -7,10 +8,11 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class PersonListItemComponent implements OnInit {
 
-  @Input() person = {
+  @Input() user:User = {
+    id: '',
     photo: '',
     name: '',
-    isFriend: false
+    //isFriend: false
   }
 
   constructor() { }
