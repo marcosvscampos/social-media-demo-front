@@ -4,6 +4,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Fugaz+One&display=swap');
 
 :root {
+    --background-alternative: #E8D6CB;
     --background-primary: #424B54;
     --background-secondary: #c1ced1;
     --font-primary: #D65108;
@@ -21,4 +22,31 @@
 
 .container-flex {
     display: flex;
+}
+
+.ff-rubik {
+    font-family: 'Rubik', sans-serif;
+}
+
+.ff-fugaz {
+    font-family: 'Fugaz One', cursive;
+}
+
+.button {
+    width: 8em;
+    padding: 0.2em 0;
+}
+
+.input-default {
+    padding: 10px 25px;
+    border-radius: 10px;
+    border: 0;
+}
+
+.borderless-radius {
+    border: 0;
+    border-radius: 10px;
+    -webkit-box-shadow: 2px 5px 10px 0px rgba(66,75,84,0.65);
+    -moz-box-shadow: 2px 5px 10px 0px rgba(66,75,84,0.65);
+    box-shadow: 2px 5px 10px 0px rgba(66,75,84,0.65);
 }

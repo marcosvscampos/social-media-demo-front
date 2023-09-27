@@ -2,20 +2,32 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ListFriendsComponent } from './components/main/list-friends/list-friends.component';
 import { ListFeedComponent } from './components/main/list-feed/list-feed.component';
+import { SocialComponent } from './components/pages/social/social.component';
+import { LoginComponent } from './components/pages/login/login.component';
 
 const routes: Routes = [
   {
     path: '',
     pathMatch: 'full',
-    redirectTo: 'my-friends'
-  }, 
-  {
-    path: 'my-friends',
-    component: ListFriendsComponent
+    redirectTo: 'login'
   },
   {
-    path: 'my-feed',
-    component: ListFeedComponent
+    path: 'login',
+    component: LoginComponent
+  },
+  {
+    path: 'social',
+    component: SocialComponent,
+    children: [
+      {
+        path: 'my-friends',
+        component: ListFriendsComponent
+      },
+      {
+        path: 'my-feed',
+        component: ListFeedComponent
+      }
+    ]
   }
 ];
 

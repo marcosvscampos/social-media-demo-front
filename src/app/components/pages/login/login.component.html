@@ -1,0 +1,17 @@
+<section class="container-flex justify-center login-page">
+    <div class="login-container borderless-radius">
+        <h1 class="ff-fugaz">Social Media Demo</h1>
+        <div class="field-container">
+            <span class="material-symbols-outlined">account_circle</span>
+            <input class="input-default pink-border dark-bkg" type="text" 
+                name="username" [(ngModel)]="login.username">
+        </div>
+        <div class="field-container">
+            <span class="material-symbols-outlined">lock</span>
+            <input class="input-default pink-border dark-bkg" type="password" 
+                name="password" [(ngModel)]="login.password">
+        </div>
+        <button class="button login-button ff-fugaz borderless-radius" (click)="doLogin()">Entrar</button>
+        <button class="button register-button ff-fugaz borderless-radius">Cadastrar-se</button>
+    </div>
+</section>
