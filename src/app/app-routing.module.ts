@@ -4,6 +4,7 @@ import { ListFriendsComponent } from './components/main/list-friends/list-friend
 import { ListFeedComponent } from './components/main/list-feed/list-feed.component';
 import { SocialComponent } from './components/pages/social/social.component';
 import { LoginComponent } from './components/pages/login/login.component';
+import { RegisterComponent } from './components/pages/register/register.component';
 
 const routes: Routes = [
   {
@@ -14,6 +15,10 @@ const routes: Routes = [
   {
     path: 'login',
     component: LoginComponent
+  },
+  {
+    path: 'register',
+    component: RegisterComponent
   },
   {
     path: 'social',

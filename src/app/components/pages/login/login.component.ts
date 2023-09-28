@@ -20,8 +20,12 @@ export class LoginComponent implements OnInit {
   }
 
   doLogin() {
-    console.log(`Username: ${this.login.username} | Password: ${this.login.password}`)
-    this.router.navigate(['/social/my-friends'])
+    console.log(`Username: ${this.login.username} | Password: ${this.login.password}`);
+    this.router.navigate(['/social/my-friends']);
+  }
+
+  register(){
+    this.router.navigate(['/register']);
   }
 
 }

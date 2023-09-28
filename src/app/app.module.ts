@@ -12,6 +12,7 @@ import { PersonListItemComponent } from './components/main/person-list-item/pers
 import { HttpClientModule } from '@angular/common/http';
 import { LoginComponent } from './components/pages/login/login.component';
 import { SocialComponent } from './components/pages/social/social.component';
+import { RegisterComponent } from './components/pages/register/register.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { SocialComponent } from './components/pages/social/social.component';
     ListFeedComponent,
     PersonListItemComponent,
     LoginComponent,
-    SocialComponent
+    SocialComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
