@@ -10,6 +10,9 @@ import { ListFeedComponent } from './components/main/list-feed/list-feed.compone
 import { PersonListItemComponent } from './components/main/person-list-item/person-list-item.component';
 
 import { HttpClientModule } from '@angular/common/http';
+import { LoginComponent } from './components/pages/login/login.component';
+import { SocialComponent } from './components/pages/social/social.component';
+import { RegisterComponent } from './components/pages/register/register.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +20,10 @@ import { HttpClientModule } from '@angular/common/http';
     HeaderComponent,
     ListFriendsComponent,
     ListFeedComponent,
-    PersonListItemComponent
+    PersonListItemComponent,
+    LoginComponent,
+    SocialComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,

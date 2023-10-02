@@ -4,6 +4,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Fugaz+One&display=swap');
 
 :root {
+    --background-alternative: #E8D6CB;
     --background-primary: #424B54;
     --background-secondary: #c1ced1;
     --font-primary: #D65108;
@@ -22,3 +23,95 @@
 .container-flex {
     display: flex;
 }
+
+.ff-rubik {
+    font-family: 'Rubik', sans-serif;
+}
+
+.ff-fugaz {
+    font-family: 'Fugaz One', cursive;
+}
+
+.justify-center {
+    justify-content: center;
+}
+
+.button {
+    width: 8em;
+    padding: 0.2em 0;
+}
+
+.register-button {
+    background-color: var(--button-confirm);
+    color: var(--background-primary);
+}
+
+.register-button:active {
+    border: 2px solid var(--button-confirm);
+    background-color: var(--background-primary);
+    color: var(--button-confirm)
+}
+
+.input-default {
+    padding: 10px 25px;
+    border-radius: 10px;
+    border: 0;
+}
+
+.borderless-radius {
+    border: 0;
+    border-radius: 10px;
+    -webkit-box-shadow: 2px 5px 10px 0px rgba(66,75,84,0.65);
+    -moz-box-shadow: 2px 5px 10px 0px rgba(66,75,84,0.65);
+    box-shadow: 2px 5px 10px 0px rgba(66,75,84,0.65);
+}
+
+.simple-page {
+    background-color: var(--background-secondary);
+    height: 100vh;
+}
+
+.simple-page-container {
+    padding: 2em 4em;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+    background-color: var(--background-primary);
+    margin: 4em 0;
+    box-sizing: border-box;
+}
+
+.pink-border {
+    border: 2px solid var(--font-secondary);
+}
+
+.dark-bkg {
+    background-color: var(--background-primary);
+    color: var(--font-secondary);
+}
+
+.field-container {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    color: var(--font-secondary);
+}
+
+.title {
+    color: var(--font-secondary);
+    margin-bottom: 1em;
+}
+
+input[type="file"] {
+    display: none;
+}
+
+.input-file {
+    width: 0.1px;
+	height: 0.1px;
+	opacity: 0;
+	overflow: hidden;
+	position: absolute;
+	z-index: -1;
+} 

@@ -1,0 +1,14 @@
+.label-image {
+    display: flex;
+    padding: 0.5em 1em;
+    gap: 10px;
+    cursor: pointer;
+}
+
+.registry-container {
+    margin: 1em 0;
+}
+
+.file-name {
+    color: var(--background-secondary);
+}
