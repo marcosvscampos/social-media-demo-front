@@ -100,7 +100,6 @@
 
 .title {
     color: var(--font-secondary);
-    margin-bottom: 1em;
 }
 
 input[type="file"] {

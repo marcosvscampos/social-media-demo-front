@@ -11,4 +11,5 @@
 
 .file-name {
     color: var(--background-secondary);
+    font-size: 0.6em;
 }
