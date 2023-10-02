@@ -1,5 +1,11 @@
+import { UserService } from 'src/app/services/users/user.service';
 import { Component, OnInit } from '@angular/core';
 import { User } from 'src/app/domain/user';
+import { Credential } from 'src/app/domain/credential';
+import { KeyPair } from 'src/app/domain/key-pair';
+import { KeypairService } from 'src/app/services/keypairs/keypair.service';
+import { CredentialService } from 'src/app/services/credentials/credential.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register',
@@ -16,10 +22,26 @@ export class RegisterComponent implements OnInit {
 
   user:User = {
     name: '',
+    username: '',
     photo: ''
   }
 
-  constructor() { }
+  credential:Credential = {
+    userId: '',
+    credentialType: 'PASSWORD',
+    secretValue: ''
+  }
+
+  keyPair:KeyPair = {
+    userId: ''
+  }
+
+  constructor(
+    private userService: UserService,
+    private keyPairService: KeypairService,
+    private credentialService: CredentialService,
+    private router:Router
+  ) { }
 
   onFileChange(event: any) {
     const file = event.target.files[0];
@@ -40,8 +62,42 @@ export class RegisterComponent implements OnInit {
   }
 
   doRegister(){
-    var values = `${this.user.name} - ${this.register.password} - ${this.register.confirmPassword} - ${this.user.photo}`
-    console.log(values)
+    this.createUser();  
+  }
+
+  private createUser() {
+    this.userService.create(this.user)
+      .subscribe((response) => {
+        console.log(`Getting user at address: ${response.uri}`);
+        this.getUserById(response.uri);
+      });
+  }
+  
+  private getUserById(userId: string) {
+    this.userService.getById(userId)
+      .subscribe((user) => {
+        console.log(`Creating new key-pair for user ID: ${user.id}`);
+        this.keyPair.userId = user.id;
+        this.credential.userId = user.id;
+        this.createKeyPair();
+      });
+  }
+  
+  private createKeyPair() {
+    this.keyPairService.create(this.keyPair)
+      .subscribe((response) => {
+        this.credential.secretValue = this.register.confirmPassword
+        this.createCredential()
+      });
+  }
+
+  private createCredential(){
+    this.credentialService.create(this.credential)
+      .subscribe((response) => {
+        console.log(`Credential created successfully for user ID: ${this.credential.userId}`);
+        console.log(`Credential address: ${response.uri}`);
+        this.router.navigate(['/login'])
+      })
   }
 
 }

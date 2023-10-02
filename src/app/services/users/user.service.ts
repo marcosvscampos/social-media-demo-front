@@ -4,6 +4,7 @@ import { Observable, of } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { User } from 'src/app/domain/user';
 import { Filter } from 'src/app/domain/filter';
+import { APIResponse } from 'src/app/domain/api-response';
 
 @Injectable({
   providedIn: 'root'
@@ -29,12 +30,25 @@ export class UserService {
       );
   }
 
-  private buildUrl(filter:Filter){
-    let URL = this.BASE_URL + this.CONTEXT_PATH + '/users';
-    if(filter.id){
-      URL = `${URL}/${filter.id}`;
-    }
+  create(request:User): Observable<APIResponse> {
+    return this.http.post<APIResponse>(this.buildUrl(), request);
+  }
 
+  getById(contextPath:string): Observable<User> {
+    return this.http.get<User>(this.buildUrlWithContextPath(contextPath));
+  }
+
+  private buildUrlWithContextPath(contextPath:string) {
+    let URL = this.BASE_URL;
+    if(contextPath){
+      URL = `${URL}${contextPath}`;
+    }
+    return URL;
+  }
+
+  private buildUrl(filter?:Filter){
+    let URL = this.BASE_URL + this.CONTEXT_PATH + '/users';
+    
     if(filter){
       URL = URL.concat("?")
       Object.entries(filter)
