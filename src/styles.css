@@ -52,6 +52,17 @@
     color: var(--button-confirm)
 }
 
+.cancel-button {
+    background-color: var(--button-cancel);
+    color: var(--background-primary);
+}
+
+.cancel-button:active {
+    border: 2px solid var(--button-cancel);
+    background-color: var(--background-primary);
+    color: var(--button-cancel)
+}
+
 .input-default {
     padding: 10px 25px;
     border-radius: 10px;
@@ -71,34 +82,12 @@
     height: 100vh;
 }
 
-.simple-page-container {
-    padding: 2em 4em;
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    align-items: center;
-    background-color: var(--background-primary);
-    margin: 4em 0;
-    box-sizing: border-box;
-}
-
 .pink-border {
     border: 2px solid var(--font-secondary);
 }
 
 .dark-bkg {
     background-color: var(--background-primary);
-    color: var(--font-secondary);
-}
-
-.field-container {
-    display: flex;
-    gap: 10px;
-    align-items: center;
-    color: var(--font-secondary);
-}
-
-.title {
     color: var(--font-secondary);
 }
 
@@ -114,3 +103,33 @@ input[type="file"] {
 	position: absolute;
 	z-index: -1;
 } 
+
+.modal-space {
+    text-align: center;
+    margin: 2em;
+    color: var(--font-secondary);
+}
+
+.modal-form-title {
+    margin-bottom: 1em;
+    color: var(--background-primary)
+}
+
+.modal-form {
+    padding: 1em 1em 2em 1em;
+    background-color: var(--background-primary);
+}
+
+.modal-form-field-wrapper {
+    margin: 2em;
+}
+
+.modal-form-button-wrapper {
+    display: flex;
+    justify-content: center;
+    gap: 1em;
+}
+
+.label-symbol {
+    margin-right: 10px;
+}
