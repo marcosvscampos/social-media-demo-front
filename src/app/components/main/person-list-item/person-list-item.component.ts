@@ -12,6 +12,7 @@ export class PersonListItemComponent implements OnInit {
     id: '',
     photo: '',
     name: '',
+    username: ''
     //isFriend: false
   }
 
