@@ -1,14 +1,30 @@
+.register-space {
+    margin: 1em;
+}
+
 .label-image {
     display: flex;
     padding: 0.5em 1em;
+    margin: 2px;
     gap: 10px;
     cursor: pointer;
 }
 
-.registry-container {
-    margin: 1em 0;
-}
-
 .file-name {
     color: var(--background-secondary);
+    font-size: 0.6em;
+    margin-bottom: 0.5em;
+}
+
+.modal-form-register {
+    padding-bottom: 0.8em;
+}
+
+.modal-form-field-wrapper-sm {
+    margin: 1em 2em;
+}
+
+.modal-form-field-wrapper-file {
+    margin: 0.5em 1em;
+    padding: 0em 5em;
 }

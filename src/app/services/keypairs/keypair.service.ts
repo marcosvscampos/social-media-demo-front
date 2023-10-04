@@ -23,6 +23,11 @@ export class KeypairService {
     return this.http.get<KeyPair>(this.buildUrlWithContextPath(contextPath));
   }
 
+  getByUserId(userId:string): Observable<KeyPair> {
+    let URL = `${this.BASE_URL}${this.CONTEXT_PATH}/users/${userId}/keys`;
+    return this.http.get<KeyPair>(URL);
+  }
+
   private buildUrlWithContextPath(contextPath:string) {
     let URL = this.BASE_URL;
     if(contextPath){

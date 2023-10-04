@@ -61,6 +61,10 @@ export class RegisterComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  cancelRegister(){
+    this.router.navigate(['/login']);
+  }
+
   doRegister(){
     this.createUser();  
   }

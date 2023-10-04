@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { Filter } from 'src/app/domain/filter';
 import { Credential } from 'src/app/domain/credential';
 import { APIResponse } from 'src/app/domain/api-response';
+import { Login } from 'src/app/domain/login';
 
 @Injectable({
   providedIn: 'root'
@@ -23,6 +24,11 @@ export class CredentialService {
     }
 
     return this.http.post<APIResponse>(this.buildUrl(), jsonPayload);
+  }
+
+  login(request:Login):Observable<APIResponse> {
+    let URL = this.BASE_URL + this.CONTEXT_PATH + '/login';
+    return this.http.post<APIResponse>(URL, request);
   }
 
   private buildUrl(filter?:Filter){

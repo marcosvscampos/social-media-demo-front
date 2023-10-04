@@ -1,35 +1,40 @@
 <section class="container-flex justify-center simple-page">
-    <div class="simple-page-container registry-container borderless-radius">
-        <h1 class="title ff-fugaz">Cadastro - Social Media Demo</h1>
-        <div class="field-container">
-            <span class="material-symbols-outlined">face</span>
-            <input class="input-default pink-border dark-bkg" type="text" 
-                name="name" placeholder="Digite seu nome" [(ngModel)]="user.name">
+    <div class="modal-space register-space">
+        <h1 class="modal-form-title ff-fugaz">Cadastro</h1>
+        <div class="modal-form modal-form-register borderless-radius">
+            <div class="modal-form-field-wrapper-sm">
+                <span class="label-symbol material-symbols-outlined">face</span>
+                <input class="input-default pink-border dark-bkg" type="text" 
+                    name="name" placeholder="Digite seu nome" [(ngModel)]="user.name">
+            </div>
+            <div class="modal-form-field-wrapper-sm">
+                <span class="label-symbol material-symbols-outlined">person</span>
+                <input class="input-default pink-border dark-bkg" type="text" 
+                    name="name" placeholder="Digite seu usuário" [(ngModel)]="user.username">
+            </div>
+            <div class="modal-form-field-wrapper-sm">
+                <span class="label-symbol material-symbols-outlined">passkey</span>
+                <input class="input-default pink-border dark-bkg" type="password" 
+                    name="password" placeholder="Digite uma senha" [(ngModel)]="register.password">
+            </div>
+            <div class="modal-form-field-wrapper-sm">
+                <span class="label-symbol material-symbols-outlined">check</span>
+                <input class="input-default pink-border dark-bkg" type="password" 
+                    name="password" placeholder="Confirme sua senha" [(ngModel)]="register.confirmPassword">
+            </div>
+            <div class="modal-form-field-wrapper-file">
+                <input type="file" name="file" id="file" class="input-file" 
+                    accept="image/png, image/jpg, image/jpeg" 
+                    (change)="onFileChange($event)"/>
+                <label for="file" class="label-image pink-border dark-bkg borderless-radius">
+                    <span>Enviar Foto</span> <span class="material-symbols-outlined">photo_camera</span>
+                </label>
+            </div>
+            <p class="file-name">{{ register.fileName }}</p>
+            <div class="modal-form-button-wrapper">
+                <button class="button cancel-button ff-fugaz borderless-radius" (click)="cancelRegister()">Cancelar</button>
+                <button class="button register-button ff-fugaz borderless-radius" (click)="doRegister()">Cadastrar</button>
+            </div>
         </div>
-        <div class="field-container">
-            <span class="material-symbols-outlined">person</span>
-            <input class="input-default pink-border dark-bkg" type="text" 
-                name="name" placeholder="Digite seu usuário" [(ngModel)]="user.username">
-        </div>
-        <div class="field-container">
-            <span class="material-symbols-outlined">passkey</span>
-            <input class="input-default pink-border dark-bkg" type="password" 
-                name="password" placeholder="Digite uma senha" [(ngModel)]="register.password">
-        </div>
-        <div class="field-container">
-            <span class="material-symbols-outlined">check</span>
-            <input class="input-default pink-border dark-bkg" type="password" 
-                name="password" placeholder="Confirme sua senha" [(ngModel)]="register.confirmPassword">
-        </div>
-        <div class="field-container">
-            <input type="file" name="file" id="file" class="input-file" 
-                accept="image/png, image/jpg, image/jpeg" 
-                (change)="onFileChange($event)"/>
-            <label for="file" class="label-image pink-border dark-bkg borderless-radius">
-                <span>Enviar Foto</span> <span class="material-symbols-outlined">photo_camera</span>
-            </label>
-        </div>
-        <p class="file-name">{{ register.fileName }}</p>
-        <button class="button register-button ff-fugaz borderless-radius" (click)="doRegister()">Cadastrar</button>
     </div>
 </section>
