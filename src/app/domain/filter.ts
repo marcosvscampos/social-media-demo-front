@@ -1,4 +1,5 @@
 export interface Filter {
     id?:string,
-    name?: string
+    name?: string,
+    username?:string 
 }
