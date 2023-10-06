@@ -1,21 +1,21 @@
 <section class="container-flex justify-center simple-page">
     <div class="modal-space">
         <h1 class="modal-form-title ff-fugaz">Login</h1>
-        <div class="modal-form borderless-radius">
+        <form [formGroup]="loginForm" class="modal-form borderless-radius">
             <div class="modal-form-field-wrapper">
                 <span class="label-symbol material-symbols-outlined">face</span>
                 <input class="input-default pink-border dark-bkg" type="text" 
-                    name="username" placeholder="Usuário" [(ngModel)]="login.username">
+                    formControlName="username" placeholder="Usuário">
             </div>
             <div class="modal-form-field-wrapper">
                 <span class="label-symbol material-symbols-outlined">lock</span>
                 <input class="input-default pink-border dark-bkg" type="password" 
-                    name="password" placeholder="Senha" [(ngModel)]="login.password">
+                    formControlName="password" placeholder="Senha">
             </div>
             <div class="modal-form-button-wrapper">
                 <button class="button register-button ff-fugaz borderless-radius" (click)="register()">Cadastrar-se</button>
                 <button class="button login-button ff-fugaz borderless-radius" (click)="doLogin()">Entrar</button>
             </div>
-        </div>
+        </form>
     </div>
 </section>

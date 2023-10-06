@@ -12,8 +12,7 @@ export class CryptoService {
     encrypt(data:any, keyPair:KeyPair) {
         let encryptedData:any = {};
         
-        Object.entries(data).forEach(([key, value], index) => {
-            console.log(key, value, index);
+        Object.entries(data).forEach(([key, value]) => {
             if(keyPair.publicKey){
                 encryptedData[key] = this.encode(value, keyPair.publicKey);
             }

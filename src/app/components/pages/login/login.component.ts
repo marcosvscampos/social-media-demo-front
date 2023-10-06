@@ -1,9 +1,9 @@
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Filter } from './../../../domain/filter';
 import { UserService } from './../../../services/users/user.service';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { KeyPair } from 'src/app/domain/key-pair';
-import { Login } from 'src/app/domain/login';
 import { CredentialService } from 'src/app/services/credentials/credential.service';
 import { CryptoService } from 'src/app/services/crypto/crypto.service';
 import { KeypairService } from 'src/app/services/keypairs/keypair.service';
@@ -15,34 +15,39 @@ import { KeypairService } from 'src/app/services/keypairs/keypair.service';
 })
 export class LoginComponent implements OnInit {
 
-  login:Login = {
-    username : '',
-    password: ''
-  }
+  loginForm!:FormGroup
 
   constructor(
     private router:Router,
     private userService:UserService,
     private keyPairService: KeypairService,
     private cryptoService: CryptoService,
-    private credentialService: CredentialService
+    private credentialService: CredentialService,
+    private formBuilder:FormBuilder
     ) { }
 
   ngOnInit(): void {
+    this.loginForm = this.formBuilder.group({
+      username: ['', Validators.compose([
+        Validators.required
+      ])],
+      password: ['', Validators.compose([
+        Validators.required
+      ])]
+    })
   }
 
   doLogin() {
-    console.log(`Username: ${this.login.username} | Password: ${this.login.password}`);
-    this.searchUserByUsername(this.login);
+    this.searchUserByUsername();
   }
 
   register(){
     this.router.navigate(['/register']);
   }
 
-  private searchUserByUsername(login:Login) {
+  private searchUserByUsername() {
     let filter:Filter = {
-      username: this.login.username
+      username: this.loginForm.get('username')?.value
     }
     console.log("Searching user by username: " + filter.username);
     this.userService.list(filter)
@@ -64,10 +69,10 @@ export class LoginComponent implements OnInit {
   }
 
   private loginRequest(keyPair:KeyPair){
-    let loginRequest = this.cryptoService.encrypt(this.login, keyPair);
+    let loginRequest = this.cryptoService.encrypt(this.loginForm.value, keyPair);
     loginRequest["keyId"] = keyPair.id;
     this.credentialService.login(loginRequest)
-      .subscribe((response) => {
+      .subscribe(() => {
         console.log("Login made successfully!");
         this.router.navigate(['/social/my-friends']);
       });
